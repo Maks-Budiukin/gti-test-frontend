@@ -53,7 +53,7 @@ let modalOpen = ref(false)
 <style lang="scss" scoped>
 .backdrop {
 position: fixed;
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,7 +62,7 @@ position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -73,6 +73,7 @@ position: fixed;
 }
 
 .modal {
+  
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -80,6 +81,7 @@ position: fixed;
   justify-content: center;
   background-color: white;
   max-width: 60vw;
+  height: 100vh;
   z-index: 10;
 
   padding: 1rem 2rem;
