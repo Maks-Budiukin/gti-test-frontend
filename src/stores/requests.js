@@ -24,7 +24,7 @@ export const useRequestsStore = defineStore("requests", {
     //CREATE
     async addRequest(addData) {
       try {
-        const { data } = await axios.post("parcels", addData);
+        const { data } = await axiosRequests.post("parcels", addData);
         this.requests = [...this.requests, data];
       } catch (error) {
         console.log("ERROR MESSAGE:", error.message);
@@ -36,7 +36,7 @@ export const useRequestsStore = defineStore("requests", {
     //UPDATE
     async editRequest(editData, id) {
       try {
-        const { data } = await axios.patch(`parcels/${id}`, editData);
+        const { data } = await axiosRequests.patch(`parcels/${id}`, editData);
         const updatedRequests = this.requests.map((request) =>
           request._id === data._id ? data : request
         );
@@ -51,7 +51,7 @@ export const useRequestsStore = defineStore("requests", {
     //DELETE
     async deleteRequest(id) {
       try {
-        const { data } = await axios.delete(`parcels/${id}`);
+        const { data } = await axiosRequests.delete(`parcels/${id}`);
         const filteredRequests = this.requests.filter(
           (request) => request._id !== data._id
         );
