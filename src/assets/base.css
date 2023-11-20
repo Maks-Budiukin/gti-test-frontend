@@ -61,7 +61,7 @@
 
 body {
   min-height: 100vh;
-  color: var(--color-text);
+  /* color: var(--color-text); */
   background: var(--color-background);
   transition:
     color 0.5s,
@@ -83,7 +83,7 @@ body {
     'Helvetica Neue',
     sans-serif;
   font-size: 15px;
-  text-rendering: optimizeLegibility;
+  /* text-rendering: optimizeLegibility; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
