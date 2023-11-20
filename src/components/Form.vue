@@ -23,7 +23,7 @@
 </form>
 <div v-if="submitAction === submitActions.DELETE">
     <div class="button-container">
-                    <button class="form__button" v-on:click="submitHandler(submitAction)" type="button" >Delete</button>
+                    <button class="form__button" v-on:click="submitHandler(submitAction)" type="button" >DELETE</button>
                     <button class="form__button" type="button" @click="emit('close-modal')">CANCEL</button>
                 </div>
     </div>
