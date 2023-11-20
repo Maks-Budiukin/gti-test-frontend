@@ -94,6 +94,7 @@ const filterRequests = (type, date) => {
 .main-wrapper {
     grid-area: main;
     padding: 0 1rem;
+    width: 100%;
 }
 .controls-wrapper {
     
