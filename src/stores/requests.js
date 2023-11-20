@@ -1,6 +1,10 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
+const axiosRequests = axios.create({
+  baseURL: "https://gti-test-backend.vercel.app/api/",
+});
+
 export const useRequestsStore = defineStore("requests", {
   state: () => ({ requests: [] }),
 
@@ -8,7 +12,7 @@ export const useRequestsStore = defineStore("requests", {
     //READ
     async getRequests() {
       try {
-        const { data } = await axios.get("http://localhost:4000/api/parcels");
+        const { data } = await axiosRequests.get("parcels");
         this.requests = data;
       } catch (error) {
         console.log("ERROR MESSAGE:", error.message);
@@ -20,10 +24,7 @@ export const useRequestsStore = defineStore("requests", {
     //CREATE
     async addRequest(addData) {
       try {
-        const { data } = await axios.post(
-          "http://localhost:4000/api/parcels",
-          addData
-        );
+        const { data } = await axios.post("parcels", addData);
         this.requests = [...this.requests, data];
       } catch (error) {
         console.log("ERROR MESSAGE:", error.message);
@@ -35,10 +36,7 @@ export const useRequestsStore = defineStore("requests", {
     //UPDATE
     async editRequest(editData, id) {
       try {
-        const { data } = await axios.patch(
-          `http://localhost:4000/api/parcels/${id}`,
-          editData
-        );
+        const { data } = await axios.patch(`parcels/${id}`, editData);
         const updatedRequests = this.requests.map((request) =>
           request._id === data._id ? data : request
         );
@@ -53,9 +51,7 @@ export const useRequestsStore = defineStore("requests", {
     //DELETE
     async deleteRequest(id) {
       try {
-        const { data } = await axios.delete(
-          `http://localhost:4000/api/parcels/${id}`
-        );
+        const { data } = await axios.delete(`parcels/${id}`);
         const filteredRequests = this.requests.filter(
           (request) => request._id !== data._id
         );
