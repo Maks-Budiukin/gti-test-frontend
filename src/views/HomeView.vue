@@ -151,7 +151,8 @@ padding: 1rem 0;
 
 
 .table {
-    width: 100%;
+    min-width: min-content;
+    /* width: 100%; */
     margin-left: auto;
     margin-right: auto;
     padding: 0 1rem;
@@ -172,6 +173,8 @@ padding: 1rem 0;
         background-color: #fff;
         transition-property: background-color;
         transition-duration: 400ms;
+
+        /* font-size: 8px; */
 
         &:hover {
             background-color: #fdfdfd;

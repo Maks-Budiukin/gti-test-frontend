@@ -4,10 +4,10 @@
   display: grid;
   position: relative;
   background: linear-gradient(45deg, rgba(67, 87, 208, 1) 7%, rgba(201, 80, 195, 1) 100%);
-  min-width: 768px;
+  /* min-width: 768px; */
   min-height: 100vh;
-  grid-template-columns: auto minmax(768px, 1200px) auto;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: auto minmax(576px, 1200px) auto;
+  grid-template-rows: auto 2fr;
   grid-template-areas: "header header header"
     ". main .";
 }
