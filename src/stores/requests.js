@@ -1,64 +1,70 @@
-import { defineStore } from 'pinia'
-import axios from 'axios'
+import { defineStore } from "pinia";
+import axios from "axios";
 
-const axiosRequests = axios.create({
-  baseURL: 'https://gti-test-backend.vercel.app/api'
-})
-
-export const useRequestsStore = defineStore('requests', {
+export const useRequestsStore = defineStore("requests", {
   state: () => ({ requests: [] }),
 
   actions: {
     //READ
     async getRequests() {
       try {
-        const { data } = await axiosRequests.get('/parcels')
-        this.requests = data
+        const { data } = await axios.get("http://localhost:4000/api/parcels");
+        this.requests = data;
       } catch (error) {
-        console.log('ERROR MESSAGE:', error.message)
+        console.log("ERROR MESSAGE:", error.message);
 
-        return error
+        return error;
       }
     },
 
     //CREATE
     async addRequest(addData) {
       try {
-        const { data } = await axiosRequests.post('/parcels', addData)
-        this.requests = [...this.requests, data]
+        const { data } = await axios.post(
+          "http://localhost:4000/api/parcels",
+          addData
+        );
+        this.requests = [...this.requests, data];
       } catch (error) {
-        console.log('ERROR MESSAGE:', error.message)
+        console.log("ERROR MESSAGE:", error.message);
 
-        return error
+        return error;
       }
     },
 
     //UPDATE
     async editRequest(editData, id) {
       try {
-        const { data } = await axiosRequests.patch(`/parcels/${id}`, editData)
+        const { data } = await axios.patch(
+          `http://localhost:4000/api/parcels/${id}`,
+          editData
+        );
         const updatedRequests = this.requests.map((request) =>
           request._id === data._id ? data : request
-        )
-        this.requests = updatedRequests
+        );
+        this.requests = updatedRequests;
       } catch (error) {
-        console.log('ERROR MESSAGE:', error.message)
+        console.log("ERROR MESSAGE:", error.message);
 
-        return error
+        return error;
       }
     },
 
     //DELETE
     async deleteRequest(id) {
       try {
-        const { data } = await axiosRequests.delete(`/parcels/${id}`)
-        const filteredRequests = this.requests.filter((request) => request._id !== data._id)
-        this.requests = filteredRequests
+        const { data } = await axios.delete(
+          `http://localhost:4000/api/parcels/${id}`
+        );
+        const filteredRequests = this.requests.filter(
+          (request) => request._id !== data._id
+        );
+        this.requests = filteredRequests;
       } catch (error) {
-        console.log('ERROR MESSAGE:', error.message)
+        console.log("ERROR MESSAGE:", error.message);
 
-        return error
+        return error;
       }
-    }
-  }
-})
+    },
+  },
+});

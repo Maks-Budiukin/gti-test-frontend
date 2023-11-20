@@ -22,14 +22,16 @@
 
 </form>
 <div v-if="submitAction === submitActions.DELETE">
-
-    <button class="form__button" v-on:click="submitHandler(submitAction)" type="button" >Delete</button></div>
+    <div class="button-container">
+                    <button class="form__button" v-on:click="submitHandler(submitAction)" type="button" >Delete</button>
+                    <button class="form__button" type="button" @click="emit('close-modal')">CANCEL</button>
+                </div>
+    </div>
 </template>
 
 <script setup>
 import { useRequestsStore } from '../stores/requests'
 import { onMounted, onUnmounted, ref } from 'vue'
-// import MyDispatchBtn from './MyDispatchBtn.vue';
 import { submitActions } from '../utils/submitActions'
 
 const emit = defineEmits(['close-modal'])
@@ -112,38 +114,6 @@ const submitHandler = (submitAction) => {
     
 }
 
-//===================================
-
-// РАБОТАЕТ С <script> без setup:
-
-// export default {
-//     setup() {
-//         const store = useRequestsStore()
-
-//         return { store }
-//     },
-//     data() {
-//         return {
-//             from: "",
-//             to: "",
-//             description: "",
-//             type: ""
-//         }
-//     },
-//     methods: {
-//         async submitHandler() {
-//             this.store.addRequest({
-//                 from: this.from,
-//                 to: this.to,
-//                 description: this.description,
-//                 type: this.type
-//             })
-//         }
-//     }
-// }
-
-//===================================
-
 </script>
 
 <style lang="scss" scoped>
@@ -192,25 +162,13 @@ const submitHandler = (submitAction) => {
         cursor: pointer;
     }
 
-    /* select {
-        padding: 1rem;
-        border-radius: 0.5rem;
-        font-size: inherit;
+    textarea {
+        resize: none;
     }
 
-    textarea {
-        
-        padding: 1rem;
-        border-radius: 0.5rem;
-        font-size: inherit;
-        resize: none;
-    } */
+   
 
     &__button {
-
-    
-    /* width: 220px; */
-    /* height: 50px; */
     padding: 12px 24px;
     border: none;
     outline: none;
@@ -222,7 +180,6 @@ const submitHandler = (submitAction) => {
     border-radius: 10px;
     font: inherit;
     font-size: 0.8rem;
-
 
     &:before {
     content: '';

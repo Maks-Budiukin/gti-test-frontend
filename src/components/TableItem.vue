@@ -1,12 +1,12 @@
 <template>
     
-        <tr class="row" @click="console.log( from )">
+        <tr class="row">
             <td class="row__cell">{{ from }}</td>
             <td class="row__cell">{{ to }}</td>
             <td class="row__cell">{{ type }}</td>
             <td class="row__cell">{{ description }}</td>
-            <td class="row__cell"> {{ new Date(date) }}</td>
-            <td class="cell"> <slot name="button"></slot> </td>
+            <td class="row__cell"> {{ new Date(date).toLocaleString() }}</td>
+            <td class="row__cell"> <slot name="button"></slot> </td>
         </tr>
     
 
@@ -52,9 +52,12 @@ defineProps({
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
 .row {
-   
+    
+   &__cell:last-child {
+    padding: 0 1rem;
+   }
 }
 .row__cell {
 padding: 1rem;

@@ -2,22 +2,20 @@
   
     <button class="glowOnHover" :class="{ intable: submitAction !== submitActions.ADD }" @click="modalOpen = true">
       <span v-if="submitAction === submitActions.ADD">{{ submitAction }} </span> 
-      <div v-if="submitAction === submitActions.DELETE">
-          <img class="button__icon" src="/cross.svg">
-        </div>    
-              <div v-if="submitAction === submitActions.EDIT">
-            <img class="button__icon" src="/editIcon.svg">
-          </div>  
-
-        </button>
+      <img v-if="submitAction === submitActions.DELETE" class="button__icon" src="/src/components/icons/cross.svg">
+      <img v-if="submitAction === submitActions.EDIT" class="button__icon" src="/src/components/icons/editIcon.svg">
+    </button>
 
 
         <teleport to="#teleport">
           <div v-if="modalOpen" class="backdrop" @click="modalOpen = false" >
             <div class="modal" @click.stop="">
               <h3 class="modal__heading">{{ submitAction }}</h3>
-              <div class="modal__info">
-                <div class="modal__description-thumb"><img :src="`/${submitAction}.png`" />
+              <div class="modal__info" :class="{ modal__infoDelete: submitAction === submitActions.DELETE }">
+                <div class="modal__description-thumb">
+                  <div class="modal__imageThumb">
+                    <img class="modal__image" :src="`/src/components/images/${submitAction}.png`" />
+                  </div>
                     <p v-if="submitAction === submitActions.ADD" class="modal__description"> Fill in the form and your delivery request will be saved!</p>
                     <p v-if="submitAction === submitActions.EDIT" class="modal__description"> Anything wrong? Edit all the fields you see wrong and we will fix it!</p>
                     <p v-if="submitAction === submitActions.DELETE" class="modal__description"> Are you sure you want to delete this Request? It will be gone forever!</p></div>
@@ -30,7 +28,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import MyForm from './MyForm.vue';
+import MyForm from './Form.vue';
 import { submitActions } from '../utils/submitActions'
 
 
@@ -49,9 +47,6 @@ const props = defineProps({
 
 let modalOpen = ref(false)
 
-// const closeModal = (state) => {
-//     modalOpen = state;
-// }
 
 </script>
 
@@ -83,24 +78,35 @@ position: fixed;
   align-items: center;
   justify-content: center;
   background-color: white;
-  width: 60vw;
+  max-width: 60vw;
 
   padding: 1rem 2rem;
   border-radius: 1rem;
 
+  @media screen and (max-width: 870px) {
+      max-width: 90vw;
+    }
+
+ 
+
   &__heading {
     font-size: 2rem;
     text-transform: capitalize;
+    @media screen and (max-width: 870px) {
+      font-size: 1rem;
+    }
   }
 
   &__description {
     width: 65%;
     text-align: center;
     font-size: 1.5rem;
+    @media screen and (max-width: 870px) {
+      font-size: 1rem;
+    }
   }
 
   &__description-thumb {
-    /* width: 40%; */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -108,8 +114,24 @@ position: fixed;
     align-items: center;
   }
 
+  &__imageThumb {
+    max-width: 260px;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
   &__info {
     display: flex;
+
+    @media screen and (max-width: 870px) {
+      flex-direction: column;
+    }
+  }
+
+  &__infoDelete {
+    flex-direction: column;
   }
 }
 
@@ -179,8 +201,11 @@ position: fixed;
 
 
 .intable {
-padding: 4px 12px;
+padding: 8px 16px;
 border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .button__icon {

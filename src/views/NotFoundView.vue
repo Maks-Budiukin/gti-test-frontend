@@ -1,22 +1,43 @@
 <template>
-    <button class="glowOnHover" @click="emit('open-modal')">
-
-     
-        <slot name="title"></slot>
-            </button>
+    <div class="wrapper">
+        <div class="notFound">
+            <h1 class="notFound__title">NOTHING TO SEE HERE!</h1>
+            <img src="/src/components/images/notFound.png" alt="Not Found image">
+            <h3 class="notFound__subtitle">Please, pass by!</h3>
+            <p class="notFound__description"> We really do not hide ANYTHING interesting here. Please,</p>
+            <RouterLink class="glowOnHover" to="/">GO BACK!</RouterLink>
+        </div>
+    </div>
 </template>
 
 <script setup>
-const emit = defineEmits(['open-modal'])
-const props = defineProps({
-    submitAction: {
-        type: String,
-        required: true
-    }
-})
+import { RouterLink } from 'vue-router'
+
 </script>
 
 <style lang="scss" scoped>
+.wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notFound {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    text-align: center;
+    
+    padding: 1.5rem;
+
+    &__description {
+        margin: 0.5rem 0;
+    }
+}
+
 .glowOnHover {
     /* width: 220px; */
     /* height: 50px; */
@@ -30,8 +51,6 @@ const props = defineProps({
     z-index: 0;
     border-radius: 10px;
     font: inherit;
-    
-    
 }
 
 .glowOnHover:before {
