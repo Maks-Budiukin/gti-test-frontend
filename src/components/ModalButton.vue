@@ -73,7 +73,7 @@ position: fixed;
 }
 
 .modal {
-  overflow-y: scroll;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
