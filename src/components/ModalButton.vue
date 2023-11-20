@@ -14,7 +14,7 @@
               <div class="modal__info" :class="{ modal__infoDelete: submitAction === submitActions.DELETE }">
                 <div class="modal__description-thumb">
                   <div class="modal__imageThumb">
-                    <img class="modal__image" :src="`/src/components/images/${submitAction}.png`" />
+                    <img class="modal__image" :src="`src/components/images/${submitAction}.png`" />
                   </div>
                     <p v-if="submitAction === submitActions.ADD" class="modal__description"> Fill in the form and your delivery request will be saved!</p>
                     <p v-if="submitAction === submitActions.EDIT" class="modal__description"> Anything wrong? Edit all the fields you see wrong and we will fix it!</p>
