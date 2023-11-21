@@ -61,5 +61,9 @@ defineProps({
 }
 .row__cell {
 padding: 1rem;
+    @media screen and (max-width: 768px) {
+        padding: 0.3rem;
+    }
+
 }
 </style>

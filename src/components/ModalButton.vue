@@ -76,6 +76,7 @@ position: fixed;
   
   overflow-y: auto;
   display: flex;
+  
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -128,6 +129,7 @@ position: fixed;
 
   &__info {
     display: flex;
+    gap: 1rem;
 
     @media screen and (max-width: 870px) {
       flex-direction: column;

@@ -115,6 +115,11 @@ gap: 1rem;
 
 padding: 1rem 0;
 
+@media screen and (max-width: 768px) {
+    flex-direction: column;
+    
+}
+
     label {
         margin-right: 10px;
     }
@@ -128,6 +133,10 @@ padding: 1rem 0;
 
         transition-property: border;
         transition-duration: 400ms;
+
+        @media screen and (max-width: 768px) {
+            min-width: 30vw;            
+        }
 
         &:focus, 
         &:hover {
@@ -160,6 +169,9 @@ padding: 1rem 0;
 
     th {
         padding: 1rem;
+        @media screen and (max-width: 768px) {
+            padding: 0.5rem;           
+        }
         /* border: 1px solid #352f4b; */
         /* border-radius: 10px; */
         background-color: #352f4b;
@@ -173,8 +185,11 @@ padding: 1rem 0;
         background-color: #fff;
         transition-property: background-color;
         transition-duration: 400ms;
+        white-space: pre-wrap;
 
-        /* font-size: 8px; */
+        @media screen and (max-width: 768px) {
+            font-size: 0.6rem;            
+        }
 
         &:hover {
             background-color: #fdfdfd;
