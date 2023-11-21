@@ -64,7 +64,7 @@
 <script setup>
 import MyViewItem from '../components/TableItem.vue';
 import {useRequestsStore} from '../stores/requests'
-import MyModalButton from '../components/ModalButton.vue';
+import MyModalButton from '../components/Modal.vue';
 import {submitActions} from '../utils/submitActions'
 import { ref } from 'vue'
 
