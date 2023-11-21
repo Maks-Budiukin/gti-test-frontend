@@ -146,13 +146,15 @@ margin-top: 4px;
         padding: 8px;
         border: 2px solid #ab53c34d;
         border-radius: 0.5rem;
+        font-family: inherit;
         font-size: inherit;
 
         transition-property: border;
         transition-duration: 400ms;
 
         @media screen and (max-width: 768px) {
-            min-width: 50vw;            
+            min-width: 50vw;
+            font-size: 1rem;            
         }
 
         &:focus, 
