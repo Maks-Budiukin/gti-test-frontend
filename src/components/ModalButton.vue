@@ -89,7 +89,7 @@ position: fixed;
   border-radius: 1rem;
 
   @media screen and (max-width: 890px) {
-      max-width: 90vw;
+      width: 90vw;
       padding: 1rem 2rem;
     }
 
