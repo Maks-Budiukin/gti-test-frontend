@@ -58,6 +58,14 @@ defineProps({
             cursor: pointer;
         }
     }
+
+    &__cell {
+        
+        padding: 0 1rem;
+    @media screen and (max-width: 768px) {
+        padding: 0.3rem;
+    }
+    }
     
    &__cell:last-child {
     padding: 0 1rem;
@@ -66,15 +74,16 @@ defineProps({
     }
    }
 
-   &__cell:first-child {
+   /* &__cell:first-child {
         padding: 0 1rem;
         @media screen and (max-width: 768px) {
             padding: 0 0 0 0.5rem;
         }
-    }
+    } */
 }
 /* .row__cell {
-    padding: 0 1rem;
+    display: block;
+    padding: 2rem;
     @media screen and (max-width: 768px) {
         padding: 0.3rem;
     }

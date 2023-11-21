@@ -1,7 +1,7 @@
 <template>
     <div class="controls-wrapper">
                 <div class="button-add">
-                    <MyModalButton :submitAction="submitActions.ADD"/>
+                    <ModalButton :submitAction="submitActions.ADD"/>
                     </div>
         
                 <div class="filter">
@@ -40,14 +40,14 @@
               </tr>
 
                  
-                    <MyViewItem v-for="request in filterRequests(type, date)" :key="request._id" :from="request.from" :to="request.to" :type="request.type" :description="request.description" :date="request.createdAt">
+                    <TableItem v-for="request in filterRequests(type, date)" :key="request._id" :from="request.from" :to="request.to" :type="request.type" :description="request.description" :date="request.createdAt">
                         <template #button>
                                 <div class="table__buttonContainer">
-                                    <MyModalButton :request="request" :submitAction="submitActions.EDIT"/>
-                                    <MyModalButton :request="request" :submitAction="submitActions.DELETE"/>
+                                    <ModalButton :request="request" :submitAction="submitActions.EDIT"/>
+                                    <ModalButton :request="request" :submitAction="submitActions.DELETE"/>
                                 </div>
                         </template>
-                    </MyViewItem>
+                    </TableItem>
             
                     
             </table>
@@ -55,17 +55,10 @@
 
 <script setup>
 import { useRequestsStore } from '../stores/requests'
-import MyViewItem from '../components/TableItem.vue';
-import MyModalButton from '../components/Modal.vue';
+import TableItem from '../components/TableItem.vue';
+import ModalButton from '../components/Modal.vue';
 import { submitActions } from '../utils/submitActions'
 import { ref } from 'vue'
-
-// defineProps({
-//     requests: {
-//         type: Array,
-//         required: true
-//     }
-// })
 
 const store = useRequestsStore();
 await store.getRequests()
@@ -155,6 +148,7 @@ padding: 1rem 1rem;
 }
 .table {
     min-width: min-content;
+    /* min-width: 100%; */
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;

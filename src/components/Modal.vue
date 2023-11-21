@@ -14,7 +14,7 @@
                     <p v-if="submitAction === submitActions.ADD" class="modal__description"> Fill in the form and your delivery request will be saved!</p>
                     <p v-if="submitAction === submitActions.EDIT" class="modal__description"> Anything wrong? Edit all the fields you see wrong and we will fix it!</p>
                     <p v-if="submitAction === submitActions.DELETE" class="modal__description"> Are you sure you want to delete this Request? It will be gone forever!</p></div>
-                <MyForm  :request="request" :submitAction="submitAction" @close-modal="modalOpen = false" />
+                <Form  :request="request" :submitAction="submitAction" @close-modal="modalOpen = false" />
               </div>
             </div>
           </div>
@@ -24,7 +24,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import MyForm from './Form.vue';
+import Form from './Form.vue';
 import { submitActions } from '../utils/submitActions'
 import ModalButton from './ModalButton.vue';
 
