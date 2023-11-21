@@ -85,13 +85,6 @@ onUnmounted(() => {
 const submitHandler = (submitAction) => {
     switch (submitAction) {
         case submitActions.ADD:
-            // store.addRequest({
-            //     from: from.value,
-            //     to: to.value,
-            //     type: type.value,
-            //     description: description.value
-            // });
-            
             toast.promise(
                 store.addRequest({
                     from: from.value,
@@ -113,13 +106,6 @@ const submitHandler = (submitAction) => {
             
             break;
         case submitActions.EDIT:
-            // store.editRequest({
-            //     from: from.value,
-            //     to: to.value,
-            //     type: type.value,
-            //     description: description.value
-            // }, props.request._id)
-            
             toast.promise(
                 store.editRequest({
                     from: from.value,
@@ -140,8 +126,6 @@ const submitHandler = (submitAction) => {
                 emit('close-modal')
             break;
         case submitActions.DELETE:
-            // store.deleteRequest(props.request._id)
-            
             toast.promise(
                 store.deleteRequest(props.request._id),
                 {
@@ -159,10 +143,7 @@ const submitHandler = (submitAction) => {
         default:
             return;
     }
-    
 }
-
-
 
 </script>
 
