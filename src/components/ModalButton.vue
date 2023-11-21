@@ -82,7 +82,6 @@ position: fixed;
   justify-content: center;
   background-color: white;
   width: 60vw;
-  /* height: 100vh; */
   z-index: 10;
 
   padding: 1rem 2rem;
@@ -91,6 +90,10 @@ position: fixed;
   @media screen and (max-width: 890px) {
       width: 90vw;
       padding: 1rem 2rem;
+      
+      @media (orientation: landscape) {
+        height: 100vh;
+      };
     }
 
  
@@ -99,7 +102,7 @@ position: fixed;
     font-size: 2rem;
     text-transform: capitalize;
     @media screen and (max-width: 870px) {
-      font-size: 1rem;
+      font-size: 1.5rem;
     }
   }
 
