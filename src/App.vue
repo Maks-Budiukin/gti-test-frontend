@@ -12,13 +12,8 @@ import { RouterLink, RouterView } from 'vue-router'
       </nav>
   </header>
 
-  <router-view v-slot="{ Component }">
-    <transition name="fade">
-      <component :is="Component" />
-    </transition>
-  </router-view>
 
-  <!-- <RouterView /> -->
+  <RouterView />
 
 </template>
 

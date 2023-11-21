@@ -1,6 +1,6 @@
 
 <template>
-    <div class="main-wrapper">
+    
         <Suspense>
              <Table />
             <template #fallback>
@@ -9,7 +9,7 @@
                 </div>
             </template>
         </Suspense>
-    </div>
+    
 </template>
 
 
@@ -27,16 +27,14 @@ const SpinnerOpts = {
 
 
 <style lang="scss" scoped>
-.main-wrapper {
-    grid-area: main;
-    padding: 0 1rem;
-    width: 100%;
-}
+
 
 .spinner {
     display: flex;
+
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
-    height: 100%;
     align-items: center;
 }
 </style>

@@ -1,4 +1,5 @@
 <template>
+    <div class="main-wrapper">
     <div class="controls-wrapper">
                 <div class="button-add">
                     <ModalButton :submitAction="submitActions.ADD"/>
@@ -51,6 +52,7 @@
             
                     
             </table>
+            </div>
 </template>
 
 <script setup>
@@ -81,7 +83,11 @@ const filterRequests = (type, date) => {
 </script>
 
 <style lang="scss" scoped>
-
+.main-wrapper {
+    grid-area: main;
+    padding: 0 1rem;
+    width: 100%;
+}
 .controls-wrapper {
     
     display: flex;
