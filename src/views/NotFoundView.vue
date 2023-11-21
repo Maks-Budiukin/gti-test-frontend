@@ -17,8 +17,9 @@ import { RouterLink } from 'vue-router'
 
 <style lang="scss" scoped>
 .wrapper {
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    
+    height: 100%; */
     padding: 0 1rem;
     grid-area: main;
     display: flex;
@@ -30,6 +31,8 @@ import { RouterLink } from 'vue-router'
     background-color: #fff;
     border-radius: 0.5rem;
     text-align: center;
+
+    max-width: 80vw;
     
     padding: 1.5rem;
 
