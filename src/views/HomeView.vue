@@ -136,7 +136,7 @@ padding: 1rem 0;
         transition-duration: 400ms;
 
         @media screen and (max-width: 768px) {
-            min-width: 50vw;            
+            min-width: 45vw;            
         }
 
         &:focus, 
@@ -170,8 +170,9 @@ padding: 1rem 0;
 
     th {
         padding: 1rem;
+        text-align: left;
         @media screen and (max-width: 768px) {
-            padding: 0.5rem;           
+            padding: 0.5rem 0.2rem;           
         }
         /* border: 1px solid #352f4b; */
         /* border-radius: 10px; */
@@ -179,7 +180,8 @@ padding: 1rem 0;
         
     }
     th:first-child { border-top-left-radius: 10px; }
-    th:last-child { border-top-right-radius: 10px; }
+    th:last-child { border-top-right-radius: 10px;
+    text-align: center; }
     
     
     tr {
@@ -189,11 +191,14 @@ padding: 1rem 0;
         white-space: pre-wrap;
 
         @media screen and (max-width: 768px) {
-            font-size: 0.6rem;            
+            font-size: 0.5rem;
+            padding: 1rem;            
         }
 
         &:hover {
-            background-color: #fdfdfd;
+            /* background-color: #fdfdfd; */
+            background-color: rgb(234, 204, 243);
+            cursor: pointer;
         }
 
         
@@ -203,13 +208,18 @@ padding: 1rem 0;
 
     tr td:last-child {
         padding: 2rem;
+        @media screen and (max-width: 768px) {
+        padding: 2rem 0.5rem;
+    }
         
     }
 
     tr:nth-child(even) {
         background-color: #f6f6f6;
         &:hover {
-            background-color: #f9f9f9;
+            /* background-color: #f9f9f9; */
+            background-color: rgb(234, 204, 243);
+            cursor: pointer;
         }
     }
 

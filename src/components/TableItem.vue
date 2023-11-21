@@ -57,10 +57,13 @@ defineProps({
     
    &__cell:last-child {
     padding: 0 1rem;
+    @media screen and (max-width: 768px) {
+        padding: 0 0.5rem;
+    }
    }
 }
 .row__cell {
-padding: 1rem;
+padding: 0 1rem;
     @media screen and (max-width: 768px) {
         padding: 0.3rem;
     }
