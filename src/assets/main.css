@@ -1,5 +1,6 @@
 @import './base.css';
 
+
 #app {
   display: grid;
   position: relative;
@@ -11,15 +12,6 @@
   grid-template-areas: "header header header"
     ". main .";
 }
-
-/* .Toastify__progress-bar-theme--dark {
-  color: #ab53c3;
-}
-
-.Toastify__progress-bar--success {
-  color: #ab53c3;
-} */
-
 
 
 a,
@@ -47,5 +39,5 @@ a,
     padding: 0 2rem;
   } */
 
-        
-      }
+
+}

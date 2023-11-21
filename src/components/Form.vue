@@ -103,7 +103,11 @@ const submitHandler = (submitAction) => {
                     pending: 'Processing...',
                     success: 'Request successfuly created!',
                     error: "ERROR! 🤯"
-                }
+                }, {
+                progressStyle: {
+                    backgroundColor: "#bc07b0",
+                },
+            }
                 )
                 emit('close-modal')
             
@@ -127,6 +131,10 @@ const submitHandler = (submitAction) => {
                     pending: 'Processing...',
                     success: 'Request successfuly updated!',
                     error: "ERROR! 🤯 "
+                }, {
+                        progressStyle: {
+                        backgroundColor: "#bc07b0",
+                   },
                 }
                 )
                 emit('close-modal')
@@ -140,7 +148,11 @@ const submitHandler = (submitAction) => {
                     pending: 'Processing...',
                     success: 'Request successfuly deleted!',
                     error: "ERROR! 🤯"
-                }
+                }, {
+                progressStyle: {
+                    backgroundColor: "#bc07b0",
+                },
+            }
                 )
                 emit('close-modal')
             break;
@@ -155,6 +167,7 @@ const submitHandler = (submitAction) => {
 </script>
 
 <style lang="scss" scoped>
+
 
 .button-container {
     display: flex;
