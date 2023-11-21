@@ -17,7 +17,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 .header {
  
-background: #352f4b;
+background: var(--color-secondary);
 color: #fff;
 grid-area: header;
 justify-content: center;
@@ -32,7 +32,7 @@ justify-content: center;
 
 .navigation a.router-link-exact-active {
   color: #fff;
-  background-color: #ab53c38d;
+  background-color: var(--color-main-semitransparent);
 }
 
 .navigation a {
@@ -40,7 +40,7 @@ justify-content: center;
   width: 120px;
   display: inline-block;
   padding: 1rem 2rem;
-  border-left: 1px solid #ab53c3;
+  border-left: 1px solid var(--color-main);
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }

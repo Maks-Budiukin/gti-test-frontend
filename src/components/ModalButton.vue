@@ -1,5 +1,4 @@
 <template>
-  
     <button class="glowOnHover" :class="{ intable: submitAction !== submitActions.ADD }" @click="modalOpen = true">
       <span v-if="submitAction === submitActions.ADD">{{ submitAction }} </span> 
       <img v-if="submitAction === submitActions.DELETE" class="button__icon" src="/src/components/icons/cross.svg">
@@ -31,8 +30,6 @@ import { ref } from 'vue'
 import MyForm from './Form.vue';
 import { submitActions } from '../utils/submitActions'
 
-
-
 const props = defineProps({
     request: {
         type: Object,
@@ -44,9 +41,7 @@ const props = defineProps({
     }
 })
 
-
 let modalOpen = ref(false)
-
 
 </script>
 
@@ -69,11 +64,9 @@ position: fixed;
   &::-webkit-scrollbar {
     display: none;
   }
-
 }
 
 .modal {
-  
   overflow-y: auto;
   display: flex;
   
@@ -96,8 +89,6 @@ position: fixed;
         height: 100vh;
       };
     }
-
- 
 
   &__heading {
     font-size: 2rem;
@@ -150,25 +141,20 @@ position: fixed;
 }
 
 .glowOnHover {
-    /* width: 220px; */
-    /* height: 50px; */
     padding: 8px 16px;
     border: none;
     outline: none;
     color: #fff;
-    background: #111;
+    background: var(--color-secondary);
     cursor: pointer;
     position: relative;
     z-index: 0;
     border-radius: 10px;
     font: inherit;
-    
-    
 }
-
 .glowOnHover:before {
     content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background: var(--button-gradient);
     position: absolute;
     top: -2px;
     left:-2px;
@@ -182,26 +168,22 @@ position: fixed;
     transition: opacity .3s ease-in-out;
     border-radius: 10px;
 }
-
 .glowOnHover:active {
-    color: #000
+    color: #fff;
 }
-
 .glowOnHover:active:after {
-    background: transparent;
+    background: var(--color-secondary-light);
 }
-
 .glowOnHover:hover:before {
     opacity: 1;
 }
-
 .glowOnHover:after {
     z-index: -1;
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #352f4b;
+    background: var(--color-secondary);
     left: 0;
     top: 0;
     border-radius: 10px;
@@ -212,8 +194,6 @@ position: fixed;
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
 }
-
-
 .intable {
 padding: 8px 16px;
 border-radius: 8px;
@@ -231,77 +211,4 @@ justify-content: center;
   fill: #fff;
   width: 24px;
 }
-
-
-//=====================
-
-/* .btnFlip{
-  opacity: 1;
-  outline: 0;
-  border: 0;
-
-  color: #fff;
-  line-height: 40px;
-  position: relative;
-  text-align: center;
-  letter-spacing: 1px;
-  display: inline-block;
-
-  font-family: 'Open Sans';
-  text-transform: uppercase;
-  background: 0;
-
-  
-  &:after{
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    width: 100%;
-    color: #323237;
-
-    display: inline-block;
-    transition: 0.5s;
-    background: #adadaf;
-    
-
-    content: attr(data-back);
-    transform: translateY(-50%) rotateX(90deg);
-  }
-  
-  &:before{
-    top: 0;
-    left: 0;
-    opacity: 1;
-    color: #adadaf;
-    width: 100%;
-    display: inline-block;
-    padding: 0 30px;
-    line-height: 40px;
-    transition: 0.5s;
-    position: relative;
-    background: #323237;
-
-    content: attr(data-front);
-    transform: translateY(0) rotateX(0);
-  }
-
-  &:hover{
-    
-    &:after{
-      opacity: 1;
-      transform: translateY(0) rotateX(0);
-    }
-    
-    &:before{
-      opacity: 0;
-      transform: translateY(50%) rotateX(90deg);
-    }
-  }
-  
-  
-} */
-
-//===============================
-
 </style>

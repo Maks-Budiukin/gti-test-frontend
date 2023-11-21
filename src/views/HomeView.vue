@@ -7,11 +7,11 @@
                 <MyModalButton :submitAction="submitActions.ADD"/>
                 </div>
         
-            <div class="filters">
+            <div class="filter">
             <div class="filter__type">
 
-                            <label for="type">TYPE:</label>
-                                <select name="select" id="type" v-model="type">
+                            <label class="filter__label" for="type">TYPE:</label>
+                                <select class="filter__select" name="select" id="type" v-model="type">
                                 <option value="">ALL</option>
                                 <option value="gadgets">gadgets</option>
                                 <option value="clothes">clothes</option>
@@ -22,11 +22,10 @@
             </div>
             <div class="filter__date">
 
-                <label for="date">ORDER:</label>
-                    <select name="select" id="date" v-model="date">
-                    <option value="Asc">Former</option>
-                    <option value="Desc" selected>Recent</option>
-            
+                <label class="filter__label" for="date">ORDER:</label>
+                    <select class="filter__select" name="select" id="date" v-model="date">
+                        <option value="Asc">Former</option>
+                        <option value="Desc" selected>Recent</option>
                     </select>
                 </div>
                 </div>
@@ -34,19 +33,17 @@
 
 
         <table class="table">
-            <tr class="head-tr">
-            <th>FROM</th>
-            <th>TO</th>
-            <th>TYPE</th>
-            <th>DESCRIPTION</th>
-            <th>DATE</th>
-            <th>CONTROLS</th>
-
-        
+            <tr class="table__headRow">
+            <th class="table__headCell">FROM</th>
+            <th class="table__headCell">TO</th>
+            <th class="table__headCell">TYPE</th>
+            <th class="table__headCell">DESCRIPTION</th>
+            <th class="table__headCell">DATE</th>
+            <th class="table__headCell">CONTROLS</th>
           </tr>
             <MyViewItem v-for="request in filterRequests(type, date)" :key="request._id" :from="request.from" :to="request.to" :type="request.type" :description="request.description" :date="request.createdAt">
             <template #button>
-                    <div class="btn-container">
+                    <div class="table__buttonContainer">
                         <MyModalButton :request="request" :submitAction="submitActions.EDIT"/>
                         <MyModalButton :request="request" :submitAction="submitActions.DELETE"/>
                     </div>
@@ -70,8 +67,6 @@ import { ref } from 'vue'
 const store = useRequestsStore();
 
 store.getRequests() 
-
-const requests = store.requests;
 
 const type = ref(null)
 const date = ref("Desc")
@@ -100,35 +95,39 @@ const filterRequests = (type, date) => {
     
     display: flex;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 1rem 1rem;
+    @media screen and (max-width: 768px) {
+        padding: 1rem 0;    
+    }
 }
 
 .button-add {
-
+    padding: 1rem 1rem;
+    @media screen and (max-width: 768px) {
     padding: 1rem 0;
 }
+}
 
-.filters {
+.filter {
 display: flex;
-/* justify-content: flex-end; */
 gap: 1rem;
 
-padding: 1rem 0;
+padding: 1rem 1rem;
 
 @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: flex-end;
+    padding: 1rem 0;
     
 }
 
-    label {
+    &__label {
         margin-right: 10px;
     }
-    input,
-    select {
+    &__select {
         min-width: 15vw;
         padding: 8px;
-        border: 2px solid #ab53c34d;
+        border: 2px solid var(--color-main-transparent);
         border-radius: 0.5rem;
         font-size: inherit;
 
@@ -136,13 +135,13 @@ padding: 1rem 0;
         transition-duration: 400ms;
 
         @media screen and (max-width: 768px) {
-            min-width: 45vw;            
+            min-width: 33vw;            
         }
 
         &:focus, 
         &:hover {
             outline: 0;
-            border: 2px solid #ab53c3;
+            border: 2px solid var(--color-main);
         }
 
         &::placeholder {
@@ -151,113 +150,56 @@ padding: 1rem 0;
         }
     }
 
-    select {
+    &__select {
         cursor: pointer;
     }
+    
 }
-
-
-
-
 
 .table {
     min-width: min-content;
-    /* width: 100%; */
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
     padding: 0 1rem;
     border-collapse: collapse; 
 
-    th {
+    &__headCell {
         padding: 1rem;
         text-align: left;
+        cursor: default;
         @media screen and (max-width: 768px) {
             padding: 0.5rem 0.2rem;           
         }
-        /* border: 1px solid #352f4b; */
-        /* border-radius: 10px; */
-        background-color: #352f4b;
+
+        background-color: var(--color-secondary);
         
     }
-    th:first-child { border-top-left-radius: 10px;
-    padding-left: 1rem; 
-@media screen and (max-width: 768px) {
-            padding-left: 0.5rem;           
-        }
-}
-    th:last-child { border-top-right-radius: 10px;
-    text-align: center; }
-    
-    
-    tr {
-        background-color: #fff;
-        transition-property: background-color;
-        transition-duration: 400ms;
-        white-space: pre-wrap;
 
+    &__headCell:first-child { 
+        border-top-left-radius: 10px;
+        padding-left: 1rem; 
         @media screen and (max-width: 768px) {
-            font-size: 0.5rem;
-            padding: 1rem;            
+                    padding-left: 0.5rem;           
+                }
         }
 
-        &:hover {
-            /* background-color: #fdfdfd; */
-            background-color: rgb(234, 204, 243);
-            cursor: pointer;
-        }
-
-        
-        
-
+    &__headCell:last-child { 
+        border-top-right-radius: 10px;
+        text-align: center; 
     }
 
-    tr td:last-child {
-        padding: 2rem;
-        @media screen and (max-width: 768px) {
-        padding: 2rem 0.5rem;
+    &__headRow {
+        background-color: var(--color-secondary);
+        color: #e2e2e2;
+        padding: 1rem 0;  
     }
 
-    
-        
+    &__buttonContainer {
+        padding: 5px;
+        display: flex;
+        gap: 5px;
     }
 
-    /* tr td:first-child {
-        padding-left: 1rem;
-        @media screen and (max-width: 768px) {
-        padding-left: 3rem;
-    }   
-        
-    } */
-
-    tr:nth-child(even) {
-        background-color: #f6f6f6;
-        &:hover {
-            /* background-color: #f9f9f9; */
-            background-color: rgb(234, 204, 243);
-            cursor: pointer;
-        }
-    }
-
-    
-
-    
 }
-.head-tr {
-    background-color: #352f4b;
-    /* border: 1px solid black;
-    box-sizing: border-box; */
-    color: #e2e2e2;
-    padding: 1rem 0;    
-    
-    
-}
-
-.btn-container {
-    padding: 5px;
-    display: flex;
-    gap: 5px;
-}
-
-
 </style>

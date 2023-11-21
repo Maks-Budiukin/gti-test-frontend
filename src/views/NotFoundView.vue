@@ -17,24 +17,18 @@ import { RouterLink } from 'vue-router'
 
 <style lang="scss" scoped>
 .wrapper {
-    /* width: 100%;
-    
-    height: 100%; */
     padding: 0 1rem;
     grid-area: main;
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .notFound {
     background-color: #fff;
     border-radius: 0.5rem;
     text-align: center;
-
     max-width: 80vw;
-    
     padding: 1.5rem;
 
     &__description {
@@ -43,13 +37,11 @@ import { RouterLink } from 'vue-router'
 }
 
 .glowOnHover {
-    /* width: 220px; */
-    /* height: 50px; */
     padding: 8px 16px;
     border: none;
     outline: none;
     color: #fff;
-    background: #111;
+    background: var(--color-secondary);
     cursor: pointer;
     position: relative;
     z-index: 0;
@@ -59,7 +51,7 @@ import { RouterLink } from 'vue-router'
 
 .glowOnHover:before {
     content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background: var(--button-gradient);
     position: absolute;
     top: -2px;
     left:-2px;
@@ -75,11 +67,11 @@ import { RouterLink } from 'vue-router'
 }
 
 .glowOnHover:active {
-    color: #000
+    color: #fff
 }
 
 .glowOnHover:active:after {
-    background: transparent;
+    background: var(--color-secondary-light);
 }
 
 .glowOnHover:hover:before {
@@ -92,7 +84,7 @@ import { RouterLink } from 'vue-router'
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #352f4b;
+    background: var(--color-secondary);
     left: 0;
     top: 0;
     border-radius: 10px;

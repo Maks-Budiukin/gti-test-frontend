@@ -92,7 +92,7 @@
   margin: 1rem 0;
 
   &__title {
-    background-color: #352f4b;
+    background-color: var(--color-secondary);
     color: #fff;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -115,13 +115,11 @@
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
-
   }
 
   &__thumb {
     width: 100px;
     height: 100px;
-
     padding: 16px;
 
     display: flex;
@@ -146,12 +144,12 @@
   }
 
   a {
-    color: #352f4b;
+    color: var(--color-secondary);
     padding: 0.4rem;
 
     &:hover {
       background-color: transparent;
-      color: #ab53c3;
+      color: var(--color-main);
     }
   }
 

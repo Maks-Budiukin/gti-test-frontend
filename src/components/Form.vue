@@ -1,32 +1,34 @@
 <template>
 <form v-if="submitAction !== submitActions.DELETE" class="form" v-on:submit.prevent="submitHandler(submitAction)" @keydown.esc="$emit(close-modal)" tabindex="0">
-        <label for="from">FROM:</label>
-            <input required="true" id="from" v-model="from" placeholder="London" />
-            <label for="to">TO:</label>
-            <input required="true" id="to" v-model="to" placeholder="Paris" />
-            <label for="type">TYPE:</label>
-                <select name="select" required="true" id="type" v-model="type">
-                <option value="gadgets">gadgets</option>
-                <option value="clothes" selected>clothes</option>
-                <option value="medicines">medicines</option>
-                <option value="drinks">drinks</option>
-                <option value="other">other</option>
-                </select>
+    <label class="form__label" for="from">FROM:</label>
+        <input class="form__input" required="true" id="from" v-model="from" placeholder="London" />
+    <label class="form__label" for="to">TO:</label>
+        <input class="form__input" required="true" id="to" v-model="to" placeholder="Paris" />
+    <label class="form__label" for="type">TYPE:</label>
+        <select class="form__select" name="select" required="true" id="type" v-model="type">
+            <option value="gadgets">gadgets</option>
+            <option value="clothes" selected>clothes</option>
+            <option value="medicines">medicines</option>
+            <option value="drinks">drinks</option>
+            <option value="other">other</option>
+        </select>
 
-            <label for="description">DESCRIPTION:</label>
-            <textarea id="description" v-model="description" placeholder="Your description here..." rows="3" cols="5" />
-            <div class="button-container">
-                <button class="form__button" type="submit">OK</button>
-                <button class="form__button" type="button" @click="emit('close-modal')">CANCEL</button>
-            </div>
-
+    <label class="form__label" for="description">DESCRIPTION:</label>
+        <textarea class="form__textarea" id="description" v-model="description" placeholder="Your description here..." rows="3" cols="5" />
+            
+        <div class="form__buttonContainer">
+            <button class="form__button" type="submit">OK</button>
+            <button class="form__button" type="button" @click="emit('close-modal')">CANCEL</button>
+        </div>
 </form>
-<div v-if="submitAction === submitActions.DELETE">
-    <div class="button-container">
-                    <button class="form__button" v-on:click="submitHandler(submitAction)" type="button" >DELETE</button>
+
+
+            <div v-if="submitAction === submitActions.DELETE">
+                <div class="form__buttonContainer">
+                    <button class="form__button" @click="submitHandler(submitAction)" type="button" >DELETE</button>
                     <button class="form__button" type="button" @click="emit('close-modal')">CANCEL</button>
                 </div>
-    </div>
+            </div>
 </template>
 
 <script setup>
@@ -52,7 +54,6 @@ const props = defineProps({
         required: false
     }
 })
-
 
 const from = ref("");
 const to = ref("")
@@ -148,35 +149,26 @@ const submitHandler = (submitAction) => {
 </script>
 
 <style lang="scss" scoped>
-
-
-.button-container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    gap: 0.5rem;
-    margin: 16px 0;
-}
 .form {
     display: flex;
     flex-direction: column;
 
     font-size: 16px;
 
-    label {
+    &__label {
         margin-top: 16px;
         @media screen and (max-width: 768px) {
-margin-top: 4px;
+        margin-top: 4px;
             
         }
        }
 
-    input,
-    textarea,
-    select {
+    &__input,
+    &__textarea,
+    &__select {
         min-width: 25vw;
         padding: 8px;
-        border: 2px solid #ab53c34d;
+        border: 2px solid var(--color-main-transparent);
         border-radius: 0.5rem;
         font-family: inherit;
         font-size: inherit;
@@ -192,7 +184,7 @@ margin-top: 4px;
         &:focus, 
         &:hover {
             outline: 0;
-            border: 2px solid #ab53c3;
+            border: 2px solid var(--color-main);
         }
 
         &::placeholder {
@@ -201,22 +193,28 @@ margin-top: 4px;
         }
     }
 
-    select {
+    &__select {
         cursor: pointer;
     }
 
-    textarea {
+    &__textarea {
         resize: none;
     }
 
-   
+    &__buttonContainer {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        gap: 0.5rem;
+        margin: 16px 0;
+    }
 
     &__button {
     padding: 12px 24px;
     border: none;
     outline: none;
     color: #fff;
-    background: #111;
+    background: var(--color-secondary);
     cursor: pointer;
     position: relative;
     z-index: 0;
@@ -226,7 +224,7 @@ margin-top: 4px;
 
     &:before {
     content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background: var(--button-gradient);
     position: absolute;
     top: -2px;
     left:-2px;
@@ -257,7 +255,7 @@ margin-top: 4px;
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #352f4b;
+    background: var(--color-secondary);
     left: 0;
     top: 0;
     border-radius: 10px;
@@ -267,9 +265,8 @@ margin-top: 4px;
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
+        }
+    }
+
 }
-    }
-
-
-    }
 </style>

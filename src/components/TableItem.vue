@@ -1,29 +1,12 @@
 <template>
-    
         <tr class="row">
             <td class="row__cell">{{ from }}</td>
             <td class="row__cell">{{ to }}</td>
             <td class="row__cell">{{ type }}</td>
             <td class="row__cell">{{ description }}</td>
-            <td class="row__cell"> {{ new Date(date).toLocaleString() }}</td>
+            <td class="row__cell">{{ new Date(date).toLocaleString() }}</td>
             <td class="row__cell"> <slot name="button"></slot> </td>
         </tr>
-    
-
-
-    <!-- <div>
-        <h1>{{ date }}</h1>
-        <div>
-            <p>FROM: {{ from }}</p>
-            <p>TO: {{ to }}</p>
-            <p>TYPE: {{ type }}</p>
-            <p>DESCRIPTION: {{ description }}</p>
-            <p>DATE: {{ date }}</p>
-        </div>
-        <slot name="button"></slot>
-    </div> -->
-
-
 </template>
 
 <script setup>
@@ -48,12 +31,33 @@ defineProps({
         type: String,
         required: true
     }
-
 })
 </script>
 
 <style lang="scss" scoped>
 .row {
+    background-color: #fff;
+        transition-property: background-color;
+        transition-duration: 400ms;
+        white-space: pre-wrap;
+
+        @media screen and (max-width: 768px) {
+            font-size: 0.5rem;
+            padding: 1rem;            
+        }
+
+        &:hover {
+            background-color: rgb(234, 204, 243);
+            cursor: pointer;
+        }
+
+        &:nth-child(even) {
+        background-color: #f6f6f6;
+        &:hover {
+            background-color: rgb(234, 204, 243);
+            cursor: pointer;
+        }
+    }
     
    &__cell:last-child {
     padding: 0 1rem;
@@ -63,17 +67,16 @@ defineProps({
    }
 
    &__cell:first-child {
-    padding: 0 1rem;
-    @media screen and (max-width: 768px) {
-        padding: 0 0.5rem;
+        padding: 0 1rem;
+        @media screen and (max-width: 768px) {
+            padding: 0 0.5rem;
+        }
     }
-   }
 }
 .row__cell {
-padding: 0 1rem;
+    padding: 0 1rem;
     @media screen and (max-width: 768px) {
         padding: 0.3rem;
     }
-
 }
 </style>
