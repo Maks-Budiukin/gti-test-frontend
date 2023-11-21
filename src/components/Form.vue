@@ -33,6 +33,8 @@
 import { useRequestsStore } from '../stores/requests'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { submitActions } from '../utils/submitActions'
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 const emit = defineEmits(['close-modal'])
 
@@ -91,6 +93,19 @@ const submitHandler = (submitAction) => {
             });
             
             emit('close-modal')
+            toast.promise(
+                store.addRequest({
+                    from: from.value,
+                    to: to.value,
+                    type: type.value,
+                    description: description.value
+                }),
+                {
+                    pending: 'Processing...',
+                    success: 'Request successfuly created!',
+                    error: "ERROR! 🤯"
+                }
+            )
             
             break;
         case submitActions.EDIT:
@@ -102,17 +117,40 @@ const submitHandler = (submitAction) => {
             }, props.request._id)
             
             emit('close-modal')
+            toast.promise(
+                store.editRequest({
+                    from: from.value,
+                    to: to.value,
+                    type: type.value,
+                    description: description.value
+                }, props.request._id),
+                {
+                    pending: 'Processing...',
+                    success: 'Request successfuly updated!',
+                    error: "ERROR! 🤯 "
+                }
+            )
             break;
         case submitActions.DELETE:
             store.deleteRequest(props.request._id)
             
             emit('close-modal')
+            toast.promise(
+                store.deleteRequest(props.request._id),
+                {
+                    pending: 'Processing...',
+                    success: 'Request successfuly deleted!',
+                    error: "ERROR! 🤯"
+                }
+            )
             break;
         default:
             return;
     }
     
 }
+
+
 
 </script>
 

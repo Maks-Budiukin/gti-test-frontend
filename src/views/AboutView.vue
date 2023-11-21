@@ -61,7 +61,7 @@
               <p class="about__links-item"><img src="/src/components/icons/swagger.png" width="24" alt=""><a href="https://gti-test-backend.vercel.app/swagger">Swagger Docs</a></p>
             </li>
         </ul>
-        <h2 class="about__subtitle">Thank you for visiting our app!</h2>
+        <h2 class="about__subtitle">Thank you for visiting my app!</h2>
       <img class="about__image" src="/src/components/images/about.png" alt="Not Found image">
     </div>
   </div>
