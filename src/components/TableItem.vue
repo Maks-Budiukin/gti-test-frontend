@@ -73,23 +73,5 @@ defineProps({
         padding: 0 0.5rem 0 0;
     }
    }
-
-   /* &__cell:first-child {
-        padding: 0 1rem;
-        @media screen and (max-width: 768px) {
-            padding: 0 0 0 0.5rem;
-        }
-    } */
 }
-/* .row__cell {
-    display: block;
-    padding: 2rem;
-    @media screen and (max-width: 768px) {
-        padding: 0.3rem;
-    }
-} */
-
-
-
-
 </style>

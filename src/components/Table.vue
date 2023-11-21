@@ -148,7 +148,6 @@ padding: 1rem 1rem;
 }
 .table {
     min-width: min-content;
-    /* min-width: 100%; */
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
