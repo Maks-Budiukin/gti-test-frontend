@@ -135,7 +135,7 @@ padding: 1rem 0;
         transition-duration: 400ms;
 
         @media screen and (max-width: 768px) {
-            min-width: 30vw;            
+            min-width: 50vw;            
         }
 
         &:focus, 
