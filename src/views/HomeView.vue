@@ -1,6 +1,5 @@
 
 <template>
-
     <div class="main-wrapper">
         <div class="controls-wrapper">
             <div class="button-add">
@@ -31,30 +30,7 @@
                 </div>
         </div>
 
-
-        <table class="table">
-      
-            <tr class="table__headRow">
-            <th class="table__headCell">FROM</th>
-            <th class="table__headCell">TO</th>
-            <th class="table__headCell">TYPE</th>
-            <th class="table__headCell">DESCRIPTION</th>
-            <th class="table__headCell">DATE</th>
-            <th class="table__headCell">CONTROLS</th>
-          </tr>
-
-                 
-                <MyViewItem v-for="request in filterRequests(type, date)" :key="request._id" :from="request.from" :to="request.to" :type="request.type" :description="request.description" :date="request.createdAt">
-                    <template #button>
-                            <div class="table__buttonContainer">
-                                <MyModalButton :request="request" :submitAction="submitActions.EDIT"/>
-                                <MyModalButton :request="request" :submitAction="submitActions.DELETE"/>
-                            </div>
-                    </template>
-                </MyViewItem>
-            
-                    
-        </table>
+        <Table :requests="filterRequests(type, date)"/>
     </div>
  
 
@@ -62,11 +38,12 @@
 
 
 <script setup>
-import MyViewItem from '../components/TableItem.vue';
+
 import {useRequestsStore} from '../stores/requests'
 import MyModalButton from '../components/Modal.vue';
 import {submitActions} from '../utils/submitActions'
 import { ref } from 'vue'
+import Table from '../components/Table.vue';
 
 
 const store = useRequestsStore();
