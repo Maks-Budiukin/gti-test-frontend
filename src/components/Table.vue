@@ -188,9 +188,13 @@ padding: 1rem 1rem;
 
     &__headRow {
         background-color: var(--color-secondary);
-        color: #e2e2e2;
+        color: #e2e2e2;        
         padding: 1rem 0;  
-    }
+        @media screen and (max-width: 768px) {
+                    font-size: 0.5rem;           
+                }
+        }
+    
 
     &__buttonContainer {
         padding: 5px;

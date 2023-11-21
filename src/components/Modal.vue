@@ -70,7 +70,7 @@ position: fixed;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: #fff;
   width: 60vw;
   z-index: 10;
 

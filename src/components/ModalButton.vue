@@ -81,6 +81,10 @@ border-radius: 8px;
 display: flex;
 align-items: center;
 justify-content: center;
+
+@media screen and (max-width: 768px) {
+    padding: 8px 8px;    
+}
 }
 
 .button__icon {

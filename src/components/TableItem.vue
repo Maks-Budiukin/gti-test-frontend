@@ -62,23 +62,23 @@ defineProps({
    &__cell:last-child {
     padding: 0 1rem;
     @media screen and (max-width: 768px) {
-        padding: 0 0.5rem;
+        padding: 0 0.5rem 0 0;
     }
    }
 
    &__cell:first-child {
         padding: 0 1rem;
         @media screen and (max-width: 768px) {
-            padding: 0 0.5rem;
+            padding: 0 0 0 0.5rem;
         }
     }
 }
-.row__cell {
+/* .row__cell {
     padding: 0 1rem;
     @media screen and (max-width: 768px) {
         padding: 0.3rem;
     }
-}
+} */
 
 
 
