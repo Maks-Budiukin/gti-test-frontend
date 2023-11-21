@@ -88,10 +88,11 @@ position: fixed;
   border-radius: 1rem;
 
   @media screen and (max-width: 890px) {
-      width: 90vw;
+      min-width: 90vw;
       padding: 1rem 2rem;
       
       @media (orientation: landscape) {
+        max-width: 90vw;
         height: 100vh;
       };
     }
