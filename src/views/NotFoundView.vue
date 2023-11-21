@@ -38,6 +38,9 @@ import { RouterLink } from 'vue-router'
 
 .glowOnHover {
     padding: 8px 16px;
+    display: block;
+    width: 100px;
+    margin: 1rem auto;
     border: none;
     outline: none;
     color: #fff;
