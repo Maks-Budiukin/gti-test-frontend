@@ -1,10 +1,10 @@
 <template>
 <form v-if="submitAction !== submitActions.DELETE" class="form" v-on:submit.prevent="submitHandler(submitAction)" @keydown.esc="$emit(close-modal)" tabindex="0">
-    <label class="form__label" for="from">FROM:</label>
+    <label class="form__label" for="from">FROM: <span class="form__mark">*</span></label>
         <input class="form__input" required="true" id="from" v-model="from" placeholder="London" />
-    <label class="form__label" for="to">TO:</label>
+    <label class="form__label" for="to">TO: <span class="form__mark">*</span></label>
         <input class="form__input" required="true" id="to" v-model="to" placeholder="Paris" />
-    <label class="form__label" for="type">TYPE:</label>
+    <label class="form__label" for="type">TYPE: <span class="form__mark">*</span></label>
         <select class="form__select" name="select" required="true" id="type" v-model="type">
             <option value="gadgets">gadgets</option>
             <option value="clothes" selected>clothes</option>
@@ -163,6 +163,9 @@ const submitHandler = (submitAction) => {
         }
        }
 
+    &__mark {
+        color: red;
+    }
     &__input,
     &__textarea,
     &__select {
