@@ -10,7 +10,14 @@ import { RouterLink, RouterView } from 'vue-router'
       </nav>
   </header>
 
-  <RouterView />
+  <router-view v-slot="{ Component }">
+    <transition name="fade">
+      <component :is="Component" />
+    </transition>
+  </router-view>
+
+  <!-- <RouterView /> -->
+
 </template>
 
 <style scoped>
@@ -50,5 +57,15 @@ justify-content: center;
   border-bottom-left-radius: 0.5rem;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

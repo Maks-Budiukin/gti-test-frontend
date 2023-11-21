@@ -7,6 +7,7 @@
 
 
         <teleport to="#teleport">
+          <transition name="fade">
           <div v-if="modalOpen" class="backdrop" @click="modalOpen = false" >
             <div class="modal" @click.stop="">
               <h3 class="modal__heading">{{ submitAction }}</h3>
@@ -22,6 +23,7 @@
               </div>
             </div>
           </div>
+          </transition>
         </teleport>
 </template>
 
@@ -210,5 +212,15 @@ justify-content: center;
   color: #fff;
   fill: #fff;
   width: 24px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 250ms ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

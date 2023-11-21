@@ -12,12 +12,12 @@
 
                             <label class="filter__label" for="type">TYPE:</label>
                                 <select class="filter__select" name="select" id="type" v-model="type">
-                                <option value="">ALL</option>
-                                <option value="gadgets">gadgets</option>
-                                <option value="clothes">clothes</option>
-                                <option value="medicines">medicines</option>
-                                <option value="drinks">drinks</option>
-                                <option value="other">other</option>
+                                    <option value="">ALL</option>
+                                    <option value="gadgets">gadgets</option>
+                                    <option value="clothes">clothes</option>
+                                    <option value="medicines">medicines</option>
+                                    <option value="drinks">drinks</option>
+                                    <option value="other">other</option>
                                 </select>
             </div>
             <div class="filter__date">
@@ -33,6 +33,7 @@
 
 
         <table class="table">
+      
             <tr class="table__headRow">
             <th class="table__headCell">FROM</th>
             <th class="table__headCell">TO</th>
@@ -41,14 +42,18 @@
             <th class="table__headCell">DATE</th>
             <th class="table__headCell">CONTROLS</th>
           </tr>
-            <MyViewItem v-for="request in filterRequests(type, date)" :key="request._id" :from="request.from" :to="request.to" :type="request.type" :description="request.description" :date="request.createdAt">
-            <template #button>
-                    <div class="table__buttonContainer">
-                        <MyModalButton :request="request" :submitAction="submitActions.EDIT"/>
-                        <MyModalButton :request="request" :submitAction="submitActions.DELETE"/>
-                    </div>
-            </template>
-        </MyViewItem>
+
+                 
+                <MyViewItem v-for="request in filterRequests(type, date)" :key="request._id" :from="request.from" :to="request.to" :type="request.type" :description="request.description" :date="request.createdAt">
+                    <template #button>
+                            <div class="table__buttonContainer">
+                                <MyModalButton :request="request" :submitAction="submitActions.EDIT"/>
+                                <MyModalButton :request="request" :submitAction="submitActions.DELETE"/>
+                            </div>
+                    </template>
+                </MyViewItem>
+            
+                    
         </table>
     </div>
  
@@ -202,4 +207,5 @@ padding: 1rem 1rem;
     }
 
 }
+
 </style>
