@@ -25,7 +25,7 @@ import { RouterLink } from 'vue-router'
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 80vw;
+    
 }
 
 .notFound {
