@@ -22,10 +22,10 @@
             </div>
             <div class="filter__date">
 
-                <label for="date">DATE:</label>
+                <label for="date">ORDER:</label>
                     <select name="select" id="date" v-model="date">
-                    <option value="Asc" selected>Ascending</option>
-                    <option value="Desc">Descending</option>
+                    <option value="Asc">Former</option>
+                    <option value="Desc" selected>Recent</option>
             
                     </select>
                 </div>
@@ -74,7 +74,7 @@ store.getRequests()
 const requests = store.requests;
 
 const type = ref(null)
-const date = ref("Asc")
+const date = ref("Desc")
 
 const filterRequests = (type, date) => {
     const orderedRequests = store.requests.sort((a, b) => date === "Asc" ? new Date(a.createdAt) - new Date(b.createdAt) : new Date(b.createdAt) - new Date(a.createdAt));
@@ -117,6 +117,7 @@ padding: 1rem 0;
 
 @media screen and (max-width: 768px) {
     flex-direction: column;
+    align-items: flex-end;
     
 }
 
