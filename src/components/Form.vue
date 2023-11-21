@@ -14,7 +14,7 @@
                 </select>
 
             <label for="description">DESCRIPTION:</label>
-            <textarea id="description" v-model="description" placeholder="Your description here..." rows="2" cols="5" />
+            <textarea id="description" v-model="description" placeholder="Your description here..." rows="3" cols="5" />
             <div class="button-container">
                 <button class="form__button" type="submit">OK</button>
                 <button class="form__button" type="button" @click="emit('close-modal')">CANCEL</button>
