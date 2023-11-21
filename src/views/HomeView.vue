@@ -165,6 +165,7 @@ padding: 1rem 0;
     /* width: 100%; */
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1rem;
     padding: 0 1rem;
     border-collapse: collapse; 
 
@@ -179,7 +180,12 @@ padding: 1rem 0;
         background-color: #352f4b;
         
     }
-    th:first-child { border-top-left-radius: 10px; }
+    th:first-child { border-top-left-radius: 10px;
+    padding-left: 1rem; 
+@media screen and (max-width: 768px) {
+            padding-left: 0.5rem;           
+        }
+}
     th:last-child { border-top-right-radius: 10px;
     text-align: center; }
     
@@ -211,8 +217,18 @@ padding: 1rem 0;
         @media screen and (max-width: 768px) {
         padding: 2rem 0.5rem;
     }
+
+    
         
     }
+
+    /* tr td:first-child {
+        padding-left: 1rem;
+        @media screen and (max-width: 768px) {
+        padding-left: 3rem;
+    }   
+        
+    } */
 
     tr:nth-child(even) {
         background-color: #f6f6f6;

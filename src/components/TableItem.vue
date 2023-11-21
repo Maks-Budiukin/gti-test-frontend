@@ -61,6 +61,13 @@ defineProps({
         padding: 0 0.5rem;
     }
    }
+
+   &__cell:first-child {
+    padding: 0 1rem;
+    @media screen and (max-width: 768px) {
+        padding: 0 0.5rem;
+    }
+   }
 }
 .row__cell {
 padding: 0 1rem;
