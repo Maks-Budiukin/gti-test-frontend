@@ -85,14 +85,13 @@ onUnmounted(() => {
 const submitHandler = (submitAction) => {
     switch (submitAction) {
         case submitActions.ADD:
-            store.addRequest({
-                from: from.value,
-                to: to.value,
-                type: type.value,
-                description: description.value
-            });
+            // store.addRequest({
+            //     from: from.value,
+            //     to: to.value,
+            //     type: type.value,
+            //     description: description.value
+            // });
             
-            emit('close-modal')
             toast.promise(
                 store.addRequest({
                     from: from.value,
@@ -105,18 +104,18 @@ const submitHandler = (submitAction) => {
                     success: 'Request successfuly created!',
                     error: "ERROR! 🤯"
                 }
-            )
+                )
+                emit('close-modal')
             
             break;
         case submitActions.EDIT:
-            store.editRequest({
-                from: from.value,
-                to: to.value,
-                type: type.value,
-                description: description.value
-            }, props.request._id)
+            // store.editRequest({
+            //     from: from.value,
+            //     to: to.value,
+            //     type: type.value,
+            //     description: description.value
+            // }, props.request._id)
             
-            emit('close-modal')
             toast.promise(
                 store.editRequest({
                     from: from.value,
@@ -129,12 +128,12 @@ const submitHandler = (submitAction) => {
                     success: 'Request successfuly updated!',
                     error: "ERROR! 🤯 "
                 }
-            )
+                )
+                emit('close-modal')
             break;
         case submitActions.DELETE:
-            store.deleteRequest(props.request._id)
+            // store.deleteRequest(props.request._id)
             
-            emit('close-modal')
             toast.promise(
                 store.deleteRequest(props.request._id),
                 {
@@ -142,7 +141,8 @@ const submitHandler = (submitAction) => {
                     success: 'Request successfuly deleted!',
                     error: "ERROR! 🤯"
                 }
-            )
+                )
+                emit('close-modal')
             break;
         default:
             return;
