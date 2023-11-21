@@ -81,15 +81,16 @@ position: fixed;
   align-items: center;
   justify-content: center;
   background-color: white;
-  max-width: 60vw;
-  height: 100vh;
+  width: 60vw;
+  /* height: 100vh; */
   z-index: 10;
 
   padding: 1rem 2rem;
   border-radius: 1rem;
 
-  @media screen and (max-width: 870px) {
+  @media screen and (max-width: 890px) {
       max-width: 90vw;
+      padding: 1rem 2rem;
     }
 
  
@@ -108,6 +109,8 @@ position: fixed;
     font-size: 1.5rem;
     @media screen and (max-width: 870px) {
       font-size: 1rem;
+      line-height: 1.1;
+      width: 100%;
     }
   }
 
@@ -120,7 +123,7 @@ position: fixed;
   }
 
   &__imageThumb {
-    max-width: 260px;
+    max-width: 200px;
   }
 
   &__image {
@@ -133,6 +136,7 @@ position: fixed;
 
     @media screen and (max-width: 870px) {
       flex-direction: column;
+      gap: 0;
     }
   }
 

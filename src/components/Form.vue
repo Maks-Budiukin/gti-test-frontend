@@ -14,7 +14,7 @@
                 </select>
 
             <label for="description">DESCRIPTION:</label>
-            <textarea id="description" v-model="description" placeholder="Your description here..." rows="5" cols="33" />
+            <textarea id="description" v-model="description" placeholder="Your description here..." rows="2" cols="5" />
             <div class="button-container">
                 <button class="form__button" type="submit">OK</button>
                 <button class="form__button" type="button" @click="emit('close-modal')">CANCEL</button>
@@ -128,11 +128,16 @@ const submitHandler = (submitAction) => {
 .form {
     display: flex;
     flex-direction: column;
+
     font-size: 16px;
 
     label {
         margin-top: 16px;
-    }
+        @media screen and (max-width: 768px) {
+margin-top: 4px;
+            
+        }
+       }
 
     input,
     textarea,
@@ -145,6 +150,10 @@ const submitHandler = (submitAction) => {
 
         transition-property: border;
         transition-duration: 400ms;
+
+        @media screen and (max-width: 768px) {
+            min-width: 50vw;            
+        }
 
         &:focus, 
         &:hover {

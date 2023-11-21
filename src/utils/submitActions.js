@@ -1,5 +1,5 @@
 export const submitActions = {
-  ADD: "Add Request",
+  ADD: "ADD REQUEST",
   EDIT: "Edit Request",
   DELETE: "Delete Request",
 };
